@@ -1,0 +1,19 @@
+services:
+  mysql:
+    container_name: mysql
+    image: mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - ./conf:/etc/mysql/conf.d
+      - ./data:/var/lib/mysql
+    environment:
+      - TZ=Asia/Shanghai
+      - MYSQL_ROOT_PASSWORD=toor
+    networks:
+      - mysql
+    restart: unless-stopped
+
+networks:
+  mysql:
+    name: mysql

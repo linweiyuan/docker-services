@@ -1,0 +1,19 @@
+services:
+  mysql-slave-2:
+    container_name: mysql-slave-2
+    image: mysql
+    ports:
+      - 3309:3306
+    volumes:
+      - ./conf:/etc/mysql/conf.d
+      - ./data:/var/lib/mysql
+    environment:
+      - TZ=Asia/Shanghai
+      - MYSQL_ROOT_PASSWORD=toor
+    networks:
+      - mysql
+    restart: unless-stopped
+
+networks:
+  mysql:
+    external: true
