@@ -1,0 +1,7 @@
+services:
+  kms-server:
+    container_name: kms-server
+    image: luodaoyi/kms-server
+    ports:
+      - 1688:1688
+    restart: unless-stopped
