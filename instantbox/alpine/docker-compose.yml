@@ -1,0 +1,7 @@
+services:
+  instantbox:
+    container_name: instantbox
+    image: instantbox/alpine
+    ports:
+      - 1588:1588
+    restart: unless-stopped
