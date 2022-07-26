@@ -1,0 +1,12 @@
+services:
+  openresty:
+    container_name: openresty
+    image: openresty/openresty:alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      - ./conf/conf.d:/etc/nginx/conf.d
+      - ./lua:/usr/local/openresty/nginx/lua
+      - ./html:/usr/local/openresty/nginx/html
+    restart: unless-stopped
