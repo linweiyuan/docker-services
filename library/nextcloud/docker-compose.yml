@@ -1,0 +1,21 @@
+services:
+  nextcloud:
+    container_name: nextcloud
+    image: nextcloud
+    ports:
+      - 80:80
+    volumes:
+      - ./html:/var/www/html
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=nextcloud
+      - NEXTCLOUD_TRUSTED_DOMAINS=服务器地址
+    networks:
+      - mysql
+    restart: unless-stopped
+
+networks:
+  mysql:
+    external: true
