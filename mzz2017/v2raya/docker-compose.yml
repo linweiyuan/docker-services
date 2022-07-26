@@ -1,0 +1,11 @@
+services:
+  v2raya:
+    container_name: v2raya
+    image: mzz2017/v2raya
+    volumes:
+      - ./data:/etc/v2raya
+    # environment:
+    #   - V2RAYA_ADDRESS=0.0.0.0:2017
+    network_mode: host
+    privileged: true
+    restart: unless-stopped
