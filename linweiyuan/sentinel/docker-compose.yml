@@ -1,0 +1,19 @@
+services:
+  sentinel:
+    container_name: sentinel
+    image: linweiyuan/sentinel:1.8.4
+    ports:
+      - 60000:8080
+    environment:
+      - TZ=Asia/Shanghai
+      - sentinel.dashboard.auth.username=root
+      - sentinel.dashboard.auth.password=toor
+      - nacos.server.host=nacos
+      - nacos.server.port=8848
+    networks:
+      - mysql
+    restart: unless-stopped
+
+networks:
+  mysql:
+    external: true
