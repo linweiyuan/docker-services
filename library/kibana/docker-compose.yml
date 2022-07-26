@@ -1,0 +1,15 @@
+services:
+  kibana:
+    container_name: kibana
+    image: kibana:7.17.5
+    ports:
+      - 5601:5601
+    environment:
+      - elasticsearch.hosts=http://elasticsearch:9200
+    networks:
+      - elasticsearch
+    restart: unless-stopped
+
+networks:
+  elasticsearch:
+    external: true
