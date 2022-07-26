@@ -1,0 +1,15 @@
+services:
+  logstash:
+    container_name: logstash
+    image: logstash:7.17.5
+    ports:
+      - 4560:4560
+    volumes:
+      - ./conf/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+    networks:
+      - elasticsearch
+    restart: unless-stopped
+
+networks:
+  elasticsearch:
+    external: true
