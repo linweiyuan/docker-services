@@ -1,0 +1,15 @@
+services:
+  cerebro:
+    container_name: cerebro
+    image: lmenezes/cerebro
+    ports:
+      - 9000:9000
+    volumes:
+      - ./logs:/opt/cerebro/logs
+    networks:
+      - elasticsearch
+    restart: unless-stopped
+
+networks:
+  elasticsearch:
+    external: true
