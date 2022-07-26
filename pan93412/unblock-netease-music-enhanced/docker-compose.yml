@@ -1,0 +1,15 @@
+services:
+  unblock-netease-music-enhanced:
+    container_name: unblock-netease-music-enhanced
+    image: pan93412/unblock-netease-music-enhanced
+    ports:
+      - 8080:8080
+    environment:
+      NODE_ENV: production
+      ENABLE_LOCAL_VIP: true
+      NO_CACHE: true
+      ENABLE_FLAC: true
+      JSON_LOG: true
+      LOG_LEVEL: debug
+    # command: -p 8080:8081 -o kuwo qq migu
+    restart: unless-stopped
