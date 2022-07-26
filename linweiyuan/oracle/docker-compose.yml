@@ -1,0 +1,13 @@
+services:
+  oracle:
+    container_name: oracle
+    image: linweiyuan/oracle-database:11.2.0.2-xe
+    ports:
+      - 1521:1521
+    volumes:
+      - ./oradata:/u01/app/oracle/oradata
+    environment:
+      - TZ=Asia/Shanghai
+      - ORACLE_PWD=oracle
+    shm_size: 1gb
+    restart: unless-stopped
