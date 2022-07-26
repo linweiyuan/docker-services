@@ -1,0 +1,12 @@
+services:
+  mariadb:
+    container_name: mariadb
+    image: mariadb
+    ports:
+      - 3306:3306
+    volumes:
+      - ./data:/var/lib/mysql
+    environment:
+      - TZ=Asia/Shanghai
+      - MARIADB_ROOT_PASSWORD=toor
+    restart: unless-stopped
