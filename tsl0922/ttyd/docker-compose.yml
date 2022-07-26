@@ -1,0 +1,12 @@
+services:
+  ttyd:
+    container_name: ttyd
+    image: tsl0922/ttyd
+    ports:
+      - 7681:7681
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    # command: ttyd bash
+    # command: ttyd -c root:toor bash
+    # command: ttyd login
+    restart: unless-stopped
