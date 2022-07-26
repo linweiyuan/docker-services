@@ -1,0 +1,11 @@
+services:
+  dnsmasq:
+    container_name: dnsmasq
+    image: linweiyuan/dnsmasq
+    volumes:
+      # - ./conf/dnsmasq.conf:/etc/dnsmasq.conf
+      - ./conf:/etc/dnsmasq.d
+    network_mode: host
+    # command: dnsmasq -k
+    command: dnsmasq --no-daemon --log-queries
+    restart: unless-stopped
