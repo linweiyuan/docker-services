@@ -1,0 +1,9 @@
+services:
+  cloud-torrent:
+    container_name: cloud-torrent
+    image: jpillora/cloud-torrent
+    ports:
+      - 3000:3000
+    volumes:
+      - ./downloads:/downloads
+    restart: unless-stopped
