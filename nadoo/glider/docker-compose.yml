@@ -1,0 +1,7 @@
+services:
+  glider:
+    container_name: glider
+    image: nadoo/glider
+    ports:
+      - 8388:8388
+    restart: unless-stopped
