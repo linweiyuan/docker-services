@@ -1,0 +1,5 @@
+services:
+  ssh:
+    container_name: ssh
+    image: linweiyuan/ssh
+    restart: unless-stopped
