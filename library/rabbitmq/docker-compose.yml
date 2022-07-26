@@ -1,0 +1,17 @@
+services:
+  rabbitmq:
+    hostname: rabbitmq
+    container_name: rabbitmq
+    image: rabbitmq:management-alpine
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      # - ./plugins/rabbitmq_delayed_message_exchange-3.9.0.ez:/plugins/rabbitmq_delayed_message_exchange-3.9.0.ez
+      # - ./conf/enabled_plugins:/etc/rabbitmq/enabled_plugins
+      - ./data:/var/lib/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=root
+      - RABBITMQ_DEFAULT_PASS=toor
+      - RABBITMQ_VM_MEMORY_HIGH_WATERMARK_ABSOLUTE=96M
+    restart: unless-stopped
