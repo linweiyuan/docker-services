@@ -1,0 +1,13 @@
+services:
+  flexo:
+    container_name: flexo
+    image: nroi/flexo
+    ports:
+      - 7878:7878
+    volumes:
+      - ./pkg:/var/cache/flexo/pkg
+    environment:
+      - FLEXO_CONNECT_TIMEOUT=60000
+      - FLEXO_MIRROR_SELECTION_METHOD=predefined
+      - FLEXO_MIRRORS_PREDEFINED=["https://mirrors.ustc.edu.cn"]
+    restart: unless-stopped
