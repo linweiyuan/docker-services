@@ -1,0 +1,11 @@
+services:
+  cuda:
+    container_name: cuda
+    image: nvidia/cuda:11.7.0-base-ubuntu20.04
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [ gpu ]
+    command: /bin/bash -c "nvidia-smi -l 10"
+    restart: unless-stopped
