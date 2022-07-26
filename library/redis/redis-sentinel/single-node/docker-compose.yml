@@ -1,0 +1,19 @@
+services:
+  redis-sentinel:
+    container_name: redis-sentinel
+    image: redis:7-alpine
+    ports:
+      - 26379:26379
+    volumes:
+      - ./conf/sentinel.conf:/conf/sentinel.conf
+      - ./data:/data
+    environment:
+      - TZ=Asia/Shanghai
+    networks:
+      - redis
+    command: redis-sentinel /conf/sentinel.conf
+    restart: unless-stopped
+
+networks:
+  redis:
+    external: true

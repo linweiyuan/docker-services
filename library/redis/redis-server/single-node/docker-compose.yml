@@ -1,0 +1,19 @@
+services:
+  redis:
+    container_name: redis
+    image: redis:7-alpine
+    ports:
+      - 6379:6379
+    volumes:
+      - ./conf/redis.conf:/conf/redis.conf
+      - ./data:/data
+    environment:
+      - TZ=Asia/Shanghai
+    networks:
+      - redis
+    command: redis-server /conf/redis.conf
+    restart: unless-stopped
+
+networks:
+  redis:
+    name: redis
