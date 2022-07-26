@@ -1,0 +1,13 @@
+services:
+  registry:
+    container_name: registry
+    image: registry
+    volumes:
+      # - ./conf/config.yml:/etc/docker/registry/config.yml
+      # - ./registry/htpasswd:/htpasswd
+      - ./registry:/var/lib/registry/docker/registry
+    # environment:
+    #   - REGISTRY_AUTH=htpasswd
+    #   - REGISTRY_AUTH_HTPASSWD_REALM=Auth
+    #   - REGISTRY_AUTH_HTPASSWD_PATH=/htpasswd
+    restart: unless-stopped
