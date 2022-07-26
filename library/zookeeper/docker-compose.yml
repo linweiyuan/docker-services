@@ -1,0 +1,10 @@
+services:
+  zookeeper:
+    container_name: zookeeper
+    image: zookeeper
+    ports:
+      - 2181:2181
+    volumes:
+      - ./data:/data
+      - ./datalog:/datalog
+    restart: unless-stopped
