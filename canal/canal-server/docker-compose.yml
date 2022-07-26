@@ -1,0 +1,23 @@
+services:
+  canal-server:
+    container_name: canal-server
+    image: canal/canal-server
+    ports:
+      - 11111:11111
+    volumes:
+      - ./logs:/home/admin/canal-server/logs
+    environment:
+      - canal.instance.master.address=mysql:3306
+      - canal.instance.dbUsername=canal
+      - canal.instance.dbPassword=canal
+      - canal.destinations=test
+      # - canal.instance.filter.regex=.*\\..*
+      - canal.instance.filter.regex=canal.test
+      - canal.instance.connectionCharset=UTF-8
+    networks:
+      - mysql
+    restart: unless-stopped
+
+networks:
+  mysql:
+    external: true
