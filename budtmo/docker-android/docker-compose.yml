@@ -1,0 +1,11 @@
+services:
+  docker-android:
+    container_name: docker-android
+    image: budtmo/docker-android-x86-8.1
+    # image: budtmo/docker-android-x86-11.0
+    ports:
+      - 5555:5555
+    environment:
+      - EMULATOR_ARGS=-memory 8192 -partition-size 8096
+    privileged: true
+    restart: unless-stopped
