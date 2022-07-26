@@ -1,0 +1,8 @@
+services:
+  goproxy:
+    container_name: goproxy
+    image: goproxy/goproxy
+    volumes:
+      - ./go:/go
+    entrypoint: /goproxy -proxy https://goproxy.cn
+    restart: unless-stopped
