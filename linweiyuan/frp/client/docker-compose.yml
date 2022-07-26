@@ -1,0 +1,8 @@
+services:
+  frpc:
+    container_name: frpc
+    image: linweiyuan/frp
+    volumes:
+      - ./conf/frpc.ini:/frpc.ini
+    command: frpc -c /frpc.ini
+    restart: unless-stopped

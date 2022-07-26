@@ -1,0 +1,11 @@
+services:
+  frps:
+    container_name: frps
+    image: linweiyuan/frp
+    ports:
+      - 7000:7000
+    volumes:
+      - ./conf/frps.ini:/frps.ini
+      - ./conf/404.html:/404.html
+    command: frps -c /frps.ini
+    restart: unless-stopped
