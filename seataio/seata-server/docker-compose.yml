@@ -1,0 +1,16 @@
+services:
+  seata-server:
+    container_name: seata-server
+    image: seataio/seata-server:1.5.2
+    ports:
+      - 7091:7091
+      - 8091:8091
+    volumes:
+      - ./resources:/seata-server/resources
+    networks:
+      - mysql
+    restart: unless-stopped
+
+networks:
+  mysql:
+    external: true
