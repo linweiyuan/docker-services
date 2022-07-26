@@ -1,0 +1,21 @@
+services:
+  gitea:
+    container_name: gitea
+    image: gitea/gitea
+    ports:
+      - 3000:3000
+    volumes:
+      - ./data:/data
+    environment:
+      - DB_TYPE=mysql
+      - DB_HOST=mysql
+      - DB_NAME=gitea
+      - DB_USER=gitea
+      - DB_PASSWD=gitea
+    networks:
+      - mysql
+    restart: unless-stopped
+
+networks:
+  mysql:
+    external: true
