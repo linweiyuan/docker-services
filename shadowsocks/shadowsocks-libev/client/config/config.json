@@ -1,0 +1,8 @@
+{
+  "server": "",
+  "server_port": 8388,
+  "method": "",
+  "password": "",
+  "local_address": "0.0.0.0",
+  "local_port": 1080
+}

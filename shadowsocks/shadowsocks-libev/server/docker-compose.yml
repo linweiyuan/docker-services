@@ -1,0 +1,10 @@
+services:
+  shadowsocks:
+    container_name: shadowsocks
+    image: shadowsocks/shadowsocks-libev
+    ports:
+      - 8388:8388
+    environment:
+      - METHOD=加密方式
+      - PASSWORD=密码
+    restart: unless-stopped

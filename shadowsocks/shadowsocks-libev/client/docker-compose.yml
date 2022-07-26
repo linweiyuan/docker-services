@@ -1,0 +1,11 @@
+services:
+  shadowsocks:
+    container_name: shadowsocks
+    image: shadowsocks/shadowsocks-libev
+    ports:
+      - 1080:1080
+    volumes:
+      - ./config/config.json:/config.json
+    command: ss-local -c /config.json
+    # command: ss-local -s 服务器地址 -p 端口 -m 加密方式 -k 密码 -b 0.0.0.0 -l 1080
+    restart: unless-stopped
