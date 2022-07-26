@@ -1,0 +1,14 @@
+{
+    "run_type": "server",
+    "local_addr": "0.0.0.0",
+    "local_port": 443,
+    "remote_addr": "伪装服务",
+    "remote_port": 80,
+    "password": [
+        "密码"
+    ],
+    "ssl": {
+        "cert": "证书",
+        "key": "私钥"
+    }
+}

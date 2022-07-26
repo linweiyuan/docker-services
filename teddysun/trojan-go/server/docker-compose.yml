@@ -1,0 +1,7 @@
+services:
+  trojan-go:
+    container_name: trojan-go
+    image: teddysun/trojan-go
+    volumes:
+      - ./conf/config.json:/etc/trojan-go/config.json
+    restart: unless-stopped

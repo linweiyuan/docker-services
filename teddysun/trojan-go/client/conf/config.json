@@ -1,0 +1,10 @@
+{
+    "run_type": "client",
+    "local_addr": "0.0.0.0",
+    "local_port": 1080,
+    "remote_addr": "魔法域名",
+    "remote_port": 443,
+    "password": [
+        "密码"
+    ]
+}
