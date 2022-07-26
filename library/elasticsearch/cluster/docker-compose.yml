@@ -1,0 +1,55 @@
+services:
+  elasticsearch-1:
+    container_name: elasticsearch-1
+    image: elasticsearch:7.17.5
+    ports:
+      - 9201:9200
+    volumes:
+      - ./elasticsearch-1/data:/usr/share/elasticsearch/data
+    environment:
+      - node.name=elasticsearch-1
+      - cluster.name=elasticsearch-docker-cluster
+      - cluster.initial_master_nodes=elasticsearch-1,elasticsearch-2,elasticsearch-3
+      - discovery.seed_hosts=elasticsearch-2,elasticsearch-3
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    networks:
+      - elasticsearch
+    restart: unless-stopped
+
+  elasticsearch-2:
+    container_name: elasticsearch-2
+    image: elasticsearch:7.17.5
+    ports:
+      - 9202:9200
+    volumes:
+      - ./elasticsearch-2/data:/usr/share/elasticsearch/data
+    environment:
+      - node.name=elasticsearch-2
+      - cluster.name=elasticsearch-docker-cluster
+      - cluster.initial_master_nodes=elasticsearch-1,elasticsearch-2,elasticsearch-3
+      - discovery.seed_hosts=elasticsearch-1,elasticsearch-3
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    networks:
+      - elasticsearch
+    restart: unless-stopped
+
+  elasticsearch-3:
+    container_name: elasticsearch-3
+    image: elasticsearch:7.17.5
+    ports:
+      - 9203:9200
+    volumes:
+      - ./elasticsearch-3/data:/usr/share/elasticsearch/data
+    environment:
+      - node.name=elasticsearch-3
+      - cluster.name=elasticsearch-docker-cluster
+      - cluster.initial_master_nodes=elasticsearch-1,elasticsearch-2,elasticsearch-3
+      - discovery.seed_hosts=elasticsearch-1,elasticsearch-2
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    networks:
+      - elasticsearch
+    restart: unless-stopped
+
+networks:
+  elasticsearch:
+    name: elasticsearch

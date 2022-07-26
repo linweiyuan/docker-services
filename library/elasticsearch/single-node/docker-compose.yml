@@ -1,0 +1,19 @@
+services:
+  elasticsearch:
+    container_name: elasticsearch
+    image: elasticsearch:7.17.5
+    ports:
+      - 9200:9200
+    volumes:
+      # - ./plugins:/usr/share/elasticsearch/plugins
+      - ./data:/usr/share/elasticsearch/data
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    networks:
+      - elasticsearch
+    restart: unless-stopped
+
+networks:
+  elasticsearch:
+    name: elasticsearch
