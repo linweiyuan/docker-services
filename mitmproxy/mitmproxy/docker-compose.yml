@@ -1,0 +1,9 @@
+services:
+  mitmproxy:
+    container_name: mitmproxy
+    image: mitmproxy/mitmproxy
+    ports:
+      - 8080:8080
+      - 8081:8081
+    command: mitmweb --web-host 0.0.0.0
+    restart: unless-stopped
