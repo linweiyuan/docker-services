@@ -137,8 +137,6 @@ server {
   - 如果是正常流量，但是访问魔法服务（可能是真的有访问需求，或者功夫网主动嗅探特征值），报文校验失败，返回 HTTP 服务（并不是 `fallback`）
   - 如果是魔法流量，访问的也是魔法服务，校验成功，打开互联网的大门
 
-- 流程图
+- 工作原理图
 
-  ![fuck-the-wall.png](assets/img/fuck-the-wall.png)
-
-  （该流程图是用 [drawio](../../jgraph/drawio) 画的）
+  ![fuck-the-wall.svg](assets/img/fuck-the-wall.svg)
