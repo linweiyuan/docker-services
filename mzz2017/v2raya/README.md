@@ -39,3 +39,7 @@ panic: Something in this program imports go4.org/unsafe/assume-no-moving-gc to d
 environment:
   - ASSUME_NO_MOVING_GC_UNSAFE_RISK_IT_WITH=go1.19
 ```
+
+### 版本 1.5.9.1698.1
+
+上面问题发生几个小时后，最新版本已修复，无需再设置环境变量
