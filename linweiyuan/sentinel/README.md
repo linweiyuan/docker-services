@@ -1,6 +1,6 @@
 # Sentinel
 
-官方 `dashboard` 下载地址：[sentinel-dashboard](https://github.com/alibaba/Sentinel/releases)，隐藏了部分实现细节，如需集成 `Nacos`实现规则持久化，需修改源码手动打包（当前最新版本 `1.8.4`），步骤如下
+官方 `dashboard` 下载地址：[sentinel-dashboard](https://github.com/alibaba/Sentinel/releases)，隐藏了部分实现细节，如需集成 `Nacos`实现规则持久化，需修改源码手动打包（当前最新版本 `1.8.5`），步骤如下
 
 - 修改 `sentinel-dashboard` 模块依赖，允许 `sentinel-datasource-nacos` 依赖在测试外使用
 
