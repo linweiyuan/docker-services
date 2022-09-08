@@ -1,0 +1,8 @@
+services:
+  netease_cloud_music_api:
+    container_name: netease_cloud_music_api
+    image: binaryify/netease_cloud_music_api
+    ports:
+      - 3000:3000
+    network_mode: bridge
+    restart: unless-stopped
