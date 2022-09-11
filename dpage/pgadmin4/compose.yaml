@@ -1,0 +1,11 @@
+services:
+  pgadmin4:
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    ports:
+      - 2345:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=login_email
+      - PGADMIN_DEFAULT_PASSWORD=login_password
+    network_mode: bridge
+    restart: unless-stopped
