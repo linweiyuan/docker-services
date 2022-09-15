@@ -5,6 +5,7 @@ services:
     volumes:
       - ./data:/etc/v2raya
     # environment:
+    #   - TZ=Asia/Shanghai
     #   - V2RAYA_ADDRESS=0.0.0.0:2017
     #   - ASSUME_NO_MOVING_GC_UNSAFE_RISK_IT_WITH=go1.19
     network_mode: host
