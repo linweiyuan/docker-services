@@ -2,6 +2,8 @@ services:
   cuda:
     container_name: cuda
     image: nvidia/cuda:11.7.0-base-ubuntu20.04
+    volumes:
+      - /usr/lib/libnvidia-ml.so:/usr/lib/libnvidia-ml.so
     deploy:
       resources:
         reservations:
