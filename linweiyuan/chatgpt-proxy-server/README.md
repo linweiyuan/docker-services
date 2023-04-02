@@ -4,7 +4,7 @@
 
 利用 [undetected_chromedriver](https://github.com/ultrafunkamsterdam/undetected-chromedriver) 绕过 Cloudflare 403
 
-监听 `9515` 端口,通过原生 JS 发送 XHR 来进行通信
+监听 `9515` 端口，通过原生 JS 发送 XHR 来进行通信
 
 ### Dockerfile
 
@@ -41,3 +41,5 @@ RUN echo "Server = ${MIRROR_URL}" > /etc/pacman.d/mirrorlist \
 
 CMD ["./undetected_chromedriver", "--allowed-ips=", "--allowed-origins=*"]
 ```
+
+修改 `MIRROR_URL` 为 Arch 最优源的同时，要注意网络环境能正确处理 AUR 和 GitHub 上面的资源
