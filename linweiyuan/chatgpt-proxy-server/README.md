@@ -8,6 +8,8 @@
 
 ### Dockerfile
 
+基于 `Arch Linux`（Arch 是真的好用，我连自己的服务器都用 Arch，从未滚挂）
+
 ```dockerfile
 FROM archlinux
 
@@ -43,3 +45,28 @@ CMD ["./undetected_chromedriver", "--allowed-ips=", "--allowed-origins=*"]
 ```
 
 修改 `MIRROR_URL` 为 Arch 最优源的同时，要注意网络环境能正确处理 AUR 和 GitHub 上面的资源
+
+---
+
+基于 `Ubuntu`，最终镜像比 `Arch` 能减少一百兆左右
+
+本来尝试整个 `arm` 的镜像，但是 `google-chrome` 没有提供对应版本安装包
+
+```dockerfile
+FROM ubuntu
+
+RUN apt update && apt install -y wget git python3-setuptools && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && dpkg -i google-chrome-stable_current_amd64.deb || apt -f -y install \
+    && git clone https://github.com/ultrafunkamsterdam/undetected-chromedriver \
+    && cd undetected-chromedriver \
+    && python3 setup.py install \
+    && (python3 example/example.py &) \
+    && while true; do [ -f ~/.local/share/undetected_chromedriver/undetected_chromedriver ] && cp ~/.local/share/undetected_chromedriver/undetected_chromedriver / && break || sleep 1; done \
+    && cd \
+    && rm -rf undetected-chromedriver \
+    && apt remove -y wget git python3-setuptools \
+    && rm -rf /usr/local/lib/python* \
+    && apt clean \
+    && rm -rf /var/lib/apt/lists/*
+
+CMD ["./undetected_chromedriver", "--allowed-ips=", "--allowed-origins=*"]
+```
