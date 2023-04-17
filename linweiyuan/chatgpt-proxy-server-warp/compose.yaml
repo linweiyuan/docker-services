@@ -1,7 +1,7 @@
 services:
-  chatgpt-proxy-server:
-    container_name: chatgpt-proxy-server
-    image: linweiyuan/chatgpt-proxy-server
+  chatgpt-proxy-server-warp:
+    container_name: chatgpt-proxy-server-warp
+    image: linweiyuan/chatgpt-proxy-server-warp
     ports:
-      - 9515:9515
+      - 65535:65535
     restart: unless-stopped
