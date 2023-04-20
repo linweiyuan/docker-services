@@ -13,4 +13,6 @@ RUN apt update && apt install -y wget git python3-setuptools && wget https://dl.
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
-CMD ["./undetected_chromedriver", "--allowed-ips=", "--allowed-origins=*", "--verbose"]
+COPY run.sh run.sh
+
+CMD ["/bin/bash", "/run.sh"]
