@@ -1,6 +1,10 @@
 set -m
 
-warp-svc &
+if [ -z "$LOG_LEVEL" ]; then
+    export LOG_LEVEL=INFO
+fi
+
+warp-svc | grep "$LOG_LEVEL" &
 sleep 1
 warp-cli --accept-tos set-mode proxy
 warp-cli --accept-tos register
