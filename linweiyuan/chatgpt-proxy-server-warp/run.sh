@@ -1,7 +1,7 @@
 set -m
 
 if [ -z "$LOG_LEVEL" ]; then
-    export LOG_LEVEL=INFO
+    export LOG_LEVEL=OFF
 fi
 
 warp-svc | grep "$LOG_LEVEL" &
