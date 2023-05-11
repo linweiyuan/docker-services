@@ -22,7 +22,7 @@ RUN echo "Server = ${MIRROR_URL}" > /etc/pacman.d/mirrorlist \
     && (python example/example.py &) \
     && while true; do [ -f ~/.local/share/undetected_chromedriver/undetected_chromedriver ] && sudo cp ~/.local/share/undetected_chromedriver/undetected_chromedriver / && break || sleep 1; done \
     && cd \
-    && sudo rm -rf google-chrome undetected-chromedriver \
+    && sudo rm -rf google-chrome undetected-chromedriver .local \
     ' \
     && pacman -Rs --noconfirm python-setuptools python git base-devel \
     && rm -rf /usr/lib/python* \
