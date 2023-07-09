@@ -8,7 +8,7 @@
 
 ### Dockerfile
 
-基于 `Arch Linux`（Arch 是真的好用，我连自己的服务器都用 Arch，从未滚挂）-> `Dockerfile.archlinux`
+基于 `Arch Linux`（Arch 是真的好用，我连自己的服务器都用 Arch，从未滚挂）-> `Dockerfile`
 
 修改 `MIRROR_URL` 为 Arch 最优源的同时，要注意网络环境能正确处理 AUR 和 GitHub 上面的资源
 

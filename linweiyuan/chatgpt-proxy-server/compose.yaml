@@ -3,7 +3,7 @@ services:
     container_name: chatgpt-proxy-server
     image: linweiyuan/chatgpt-proxy-server
     environment:
-      - LOG_LEVEL=INFO
+      - LOG_LEVEL=OFF
     ports:
       - 9515:9515
     restart: unless-stopped
