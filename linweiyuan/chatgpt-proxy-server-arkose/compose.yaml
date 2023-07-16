@@ -5,7 +5,5 @@ services:
     environment:
       - LOG_LEVEL=OFF
     ports:
-      - 8000:8000
-      - 9515:9515
-      - 60709:60709
+      - 65535:65535
     restart: unless-stopped
