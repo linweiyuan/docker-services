@@ -2,8 +2,8 @@ services:
   chatgpt-proxy-server-arkose:
     container_name: chatgpt-proxy-server-arkose
     image: linweiyuan/chatgpt-proxy-server-arkose
-    environment:
-      - LOG_LEVEL=OFF
     ports:
-      - 65535:65535
+      - 8081:8081
+    environment:
+      - TZ=Asia/Shanghai
     restart: unless-stopped
