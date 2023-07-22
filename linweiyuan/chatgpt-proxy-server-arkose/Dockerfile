@@ -5,7 +5,7 @@ ENV MIRROR_URL 'https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch'
 
 RUN echo "Server = ${MIRROR_URL}" > /etc/pacman.d/mirrorlist \
     && pacman -Sy --needed --noconfirm \
-    && pacman -S git go nodejs firefox --needed --noconfirm \
+    && pacman -S git go nodejs firefox chromium --needed --noconfirm \
     && git clone https://github.com/linweiyuan/chatgpt-arkose-token-api \
     && cd chatgpt-arkose-token-api \
     && go build -ldflags="-w -s" -o chatgpt-arkose-token-api main.go \
